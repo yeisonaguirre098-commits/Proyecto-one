@@ -1,0 +1,109 @@
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.historia {
+    width: 100%;
+    min-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 80px 20px;
+    text-align: center;
+
+    background-color: #0b0b0b;
+    color: #ffffff;
+
+    border-top: 6px solid #ff00ff;
+}
+
+/* ===== TITULO ===== */
+.historia h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-bottom: 40px;
+
+    background-color: #ff00ff;
+    color: #000;
+    padding: 12px 25px;
+
+    box-shadow: 6px 6px 0px #ffffff;
+}
+
+/* ===== CAJA CON LUCES ANIMADAS ===== */
+.historia p {
+    position: relative;
+    max-width: 750px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+
+    padding: 25px;
+    border-radius: 12px;
+
+    background-color: #1a1a1a;
+
+    z-index: 1;
+}
+
+/* Borde luminoso animado */
+.historia p::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 14px;
+    z-index: -1;
+
+    background: linear-gradient(
+        60deg,
+        #ff00ff,
+        #00f0ff,
+        #ff9900,
+        #ff00ff
+    );
+
+    background-size: 300% 300%;
+    animation: glowMove 7s linear infinite;
+}
+
+/* Capa interior */
+.historia p::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #1a1a1a;
+    border-radius: 12px;
+    z-index: -1;
+}
+
+/* ===== ANIMACION ===== */
+@keyframes glowMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .historia h1 {
+        font-size: 2rem;
+    }
+
+    .historia p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .historia {
+        padding: 50px 15px;
+    }
+
+    .historia h1 {
+        font-size: 1.6rem;
+    }
+
+    .historia p {
+        font-size: 0.95rem;
+        padding: 18px;
+    }
+}

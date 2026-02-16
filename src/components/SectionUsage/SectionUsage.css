@@ -1,0 +1,125 @@
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.section-usage {
+    width: 100%;
+    min-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 80px 20px;
+    text-align: center;
+
+    background: #0a0a0a;
+    color: #ffffff;
+
+    border-top: 6px solid #00f0ff;
+}
+
+/* ===== TITULO ===== */
+.section-usage h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+
+    background: #00f0ff;
+    color: #000;
+    padding: 10px 20px;
+
+    box-shadow: 6px 6px 0px #ffffff;
+}
+
+/* ===== TEXTO ===== */
+.section-usage p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #cccccc;
+}
+
+/* ===== LISTA CON LUCES RGB ===== */
+.section-usage ol {
+    position: relative;
+    max-width: 700px;
+    padding: 30px;
+    border-radius: 15px;
+    list-style-position: inside;
+
+    background: #141414;
+    z-index: 1;
+}
+
+/* Borde animado RGB */
+.section-usage ol::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 18px;
+    z-index: -1;
+
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #00ff00,
+        #0000ff,
+        #ff00ff,
+        #00ffff,
+        #ff0000
+    );
+
+    background-size: 400% 400%;
+    animation: rgbBorder 8s linear infinite;
+}
+
+/* Capa interior */
+.section-usage ol::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    background: #141414;
+    z-index: -1;
+}
+
+/* Estilo de items */
+.section-usage li {
+    margin: 15px 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* ===== ANIMACION RGB ===== */
+@keyframes rgbBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .section-usage h2 {
+        font-size: 2rem;
+    }
+
+    .section-usage li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-usage {
+        padding: 50px 15px;
+    }
+
+    .section-usage h2 {
+        font-size: 1.6rem;
+    }
+
+    .section-usage ol {
+        padding: 20px;
+    }
+
+    .section-usage li {
+        font-size: 0.95rem;
+    }
+}
